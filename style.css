@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
 html{
     box-sizing: border-box;
 }
@@ -6,11 +8,82 @@ body{
     font-family: arial, sans-serif;
     background-color: whitesmoke;
     margin: 0;
-    min-height: 100vh;
+    padding: 0;
+    overflow: hidden;
 }
 
 .test{
     color: dodgerblue;
 
-    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    letter-spacing: 60px;
+    filter: blur(1rem);
+    transition: letter-spacing 3s ease,
+    filter 1.7s ease;
+}
+
+h1 {
+    font-family: 'Jost';
+    font-style: italic;
+    font-weight:  550;
+    font-size: 65px;
+    margin: 0;
+    margin-top: 160px;
+    padding: 15px;
+}
+
+.icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    letter-spacing: 60px;
+    filter: blur(1.5rem);
+    transition: letter-spacing 3s ease,
+                filter 1.7s ease;
+}
+
+.fa-brands{
+    margin: 0 8px;
+    padding: 0;
+    font-size: 3em;
+    transition: 
+    transform 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.fa-brands:hover {
+    transform: scale(1.2);
+    transition: 
+    transform 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+small{
+    text-align: center;
+    font-family: jost;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: rgb(156, 0, 0);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
 }
