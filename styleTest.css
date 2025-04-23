@@ -74,3 +74,20 @@ and will animate from one set of properties to another */
     width: 100%;
     text-align: center;
 }
+
+
+
+/* My body style */
+
+body{
+    font-family: jost, arial, sans-serif;
+    background-color: var(--bg-color);
+    transition: background-color 2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: var(--text-color);
+    overflow-x: hidden;
+}

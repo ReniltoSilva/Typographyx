@@ -1,26 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
+:root {
+    --bg-color: whitesmoke;
+    --text-color: rgb(60, 60, 60);
+    --box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    --text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+    --bg-color: rgba(39, 39, 39);
+    --text-color: rgb(219, 219, 219);
+    --box-shadow: 0.5px 0.5px 4px rgba(255, 255, 255, 0.307);
+    --text-shadow: 0 3px 10px rgba(255, 255, 255, 0.411);
+}
+
+/* --- General --- */
+html {
     box-sizing: border-box;
 }
 
 body{
-    font-family: arial, sans-serif;
-    background-color: whitesmoke;
-    display: flex;
+    min-height: 100vh;
+
+    font-family: 'Jost', sans-serif;
+    background-color: var(--bg-color);
+    transition: background-color 2s ease;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     margin: 0;
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 main{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: relative;
+}
+
+section {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+/* ----- Section 1 ----- */
+#section-1 {
     align-items: center;
     margin: 0 auto;
+}
+
+#button-Dark-Mode{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 110px;
+    height: 30px;
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    background-color: var(--bg-color);
+    cursor: pointer;
+    animation: focus-in-contract-Dark-Button 2s linear;
+    z-index: 100;
+}
+
+#button-Dark-Mode:hover {
+    background: rgba(226, 224, 224, 0.299);
+}
+
+.text-dark-button{
+    font-family: jost;
+    font-size: 15px;
+    padding-right: 5px;
+    animation: focus-in-contract-Dark-Button 2s linear;
+}
+.fa-moon, .fa-sun {
+    animation: focus-in-contract-Dark-Button 2s linear;
+}
+
+
+@keyframes focus-in-contract-Dark-Button {
+
+    0% {
+        filter: blur(1rem);
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
 }
 
 @keyframes focus-in-contract {
@@ -37,7 +113,6 @@ main{
     }
 }
 
-
 header{
     text-align: center;
     /* animation: focus-in-contract 2.2s linear; */
@@ -51,6 +126,7 @@ h1 {
     font-size: 65px;
     margin: 0;
     padding: 15px;
+    color: var(--text-color);
 }
 
 .icons-container {
@@ -68,6 +144,7 @@ h1 {
     font-size: 3em;
     transition: transform 0.4s ease-in-out;
     cursor: pointer;
+    color: var(--text-color);
 }
 
 .fa-brands:hover {
@@ -75,10 +152,72 @@ h1 {
     cursor: pointer;
 }
 
+/* ----- Section 2 ----- */
+#section-2 {
+    height: 100vh;
+}
 
+.main-image {
+    height: 40%;
+    width: auto;
+    position: relative;
+    top: -25%;
+    padding: 20px;
+    border: 10px solid var(--text-color);
+}
+
+/* ----- Section 3 ----- */
+.image-container {
+    position: relative;
+    top: -25%;
+    height: 50vh;
+}
+
+.small-image {
+    height: 50%;
+    width: auto;
+    padding: 20px;
+    border: 10px solid var(--text-color);
+}
+
+    .small-image:not(:first-child) {
+        margin-left: 20px;
+    }
+
+/* ----- Section 4 ----- */
+.blog-container {
+    margin: 0 auto;
+    width: 50ch;
+}
+
+.blog-item { 
+    margin-bottom: 50px;
+}
+
+/* ----- Section 5 ----- */
+/* Waves */
+.waves {
+    width: 100%;
+}
+
+    .waves > svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+
+/* ----- Footer ----- */
 a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);    ;
+    transition: color 0.5s ease,
+                text-shadow 0.5s ease;
+}
+
+small > a {
+    text-decoration: none;
+    color: rgb(219, 219, 219);    ;
     transition: color 0.5s ease,
                 text-shadow 0.5s ease;
 }
@@ -87,17 +226,20 @@ small{
     font-family: jost;
     font-weight: 500;
     font-size: 12px;
+    color: rgb(219, 219, 219);
 }
 
 small a:hover {
-    color: rgb(156, 0, 0);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: rgb(187, 48, 48);
+    text-shadow: 0 0.5px 5px rgba(219, 219, 219, 0.4);
+
 }
 
 footer {
-    position: fixed;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    bottom: -50px;
+    text-align: center;
     width: 100%;
+    animation: focus-in-contract-Dark-Button 2s linear;
+    z-index: 100;
 }

@@ -1,14 +1,56 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const headerContainer = document.querySelector('header')
-    const iconsContainer = document.querySelector('.icons-container')
-    
-    setTimeout(() => {
-        // Header Element
-        headerContainer.style.letterSpacing = '3px'
-        headerContainer.style.filter = 'none'
-        //Icons Container
-        iconsContainer.style.filter = 'none'
-        iconsContainer.style.letterSpacing = '3px'
-    }, 100)
+const darkModeButton = document.querySelector('#button-Dark-Mode')
+const textDarkMode = document.querySelector('.text-dark-button')
+const darkModeIcon = document.querySelector('.fa-solid')
+const savedThemeUser = JSON.parse(localStorage.getItem('Theme User')).theme;
 
-})
+darkModeButton.addEventListener('click', darkModeSwitcher)
+document.addEventListener('DOMContentLoaded', checkThemeUser(savedThemeUser))
+
+//Light Mode Function
+function lightMode(){
+    darkModeButton.children[0].textContent = 'Light Mode'
+    darkModeButton.children[1].classList.replace('fa-moon', 'fa-sun')
+    // darkModeIcon.classList.add('fa-flip')
+    // darkModeIcon.setAttribute('style', '--fa-animation-iteration-count: 2;') //STOPPED HERE, TRYING TO ANIMATE ICON WHEN CLICKED
+}
+
+//Dark Mode Function
+function darkMode(){
+    darkModeButton.children[0].textContent = 'Dark Mode'
+    darkModeButton.children[1].classList.replace('fa-sun', 'fa-moon')
+    // darkModeIcon.classList.add('fa-flip')
+    // darkModeIcon.setAttribute('style', '--fa-animation-iteration-count: 2;')
+}
+
+//Toggle Switch
+function darkModeSwitcher(){
+    const darkModeAttribute = document.documentElement.getAttribute('data-theme')
+    if(!darkModeAttribute || darkModeAttribute === 'light'){
+        document.documentElement.setAttribute('data-theme', 'dark')
+        darkMode()
+        savethemeUser('dark')
+    }else{
+        document.documentElement.setAttribute('data-theme', 'light')
+        lightMode()
+        savethemeUser('light')
+    }
+}
+
+//Save Theme in LocalStorage
+function savethemeUser(theme){
+    themePreference = {
+            theme
+        }
+    localStorage.setItem('Theme User', JSON.stringify(themePreference))
+}
+
+//Check Theme in LocalSorage
+function checkThemeUser(savedThemeUser){
+    if(savedThemeUser === 'light'){
+        document.documentElement.setAttribute('data-theme', 'light')
+        lightMode()
+    }else{
+        document.documentElement.setAttribute('data-theme', 'dark')
+        darkMode()
+    }
+}
