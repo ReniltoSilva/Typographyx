@@ -8,6 +8,12 @@
     --letter-spacing: 1em;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 [data-theme="dark"] {
     --bg-color: rgba(39, 39, 39);
     --text-color: rgb(219, 219, 219);
@@ -411,12 +417,13 @@ footer {
 /* Smartphone Horizontal */
 @media screen and (min-width: 600px) and (max-width: 950px) {
 
-    #section-3 {
-        margin-top: 80vh;
-    }
-
     nav ul {
         font-size: 1.25rem;
+        padding: 0;
+    }
+
+    #section-3 {
+        margin-top: 80vh;
     }
 
     .small-image {
@@ -431,16 +438,20 @@ footer {
 /* Smartphone Vertical */
 @media screen and (max-width: 600px) {
 
-   nav {
+    nav {
         width: 100vw;
         height: 100vh;
         z-index: 100;
-   }
+    }
 
-    /* Section 2 */
-    #section-2 h2 {
+    nav ul {
+        padding: 0;
+    }
+
+    section > h2 {
+        font-size: 2rem;
         text-align: center;
-        margin: 15px;
+        margin: 5% !important;
     }
 
     .main-image {
@@ -452,14 +463,8 @@ footer {
         top: -45%;
     }
 
-    /* Section 3 */
-    #section-3 h2 {
-        text-align: center;
-        margin: 15px;
-    }
-
     .small-image {
-        left: 4%;
+        left: 7%;
         position: relative;
         margin: auto 5% !important;
         height: auto;
@@ -469,17 +474,12 @@ footer {
     }
 
     /* Section 4 */
-    #section-4 {
-        top: 210px;
-        position: relative;
-    }
-
-    #section-4 h2 {
-        text-align: center;
-        margin: 15px;
+    #section-4 h2{
+       margin-top: 10vh; /* Maybe there is a bug ni the console, "Blog Update" doesn't stay right on the screen */
     }
 
     .blog-container {
         width: 80%;
     }
 }
+
