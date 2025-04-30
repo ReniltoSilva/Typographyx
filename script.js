@@ -46,7 +46,6 @@ function savethemeUser(theme){
 //Check Theme in LocalSorage
 function checkThemeUser(){
     const savedTheme = JSON.parse(localStorage.getItem('Theme User'));
-    console.log(savedTheme)
     if(!savedTheme){
         savethemeUser('Light')
     }else{
