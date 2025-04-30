@@ -441,7 +441,7 @@ footer {
     nav {
         width: 100vw;
         height: 100vh;
-        z-index: 100;
+        z-index: 1000;
     }
 
     nav ul {
@@ -480,6 +480,10 @@ footer {
 
     .blog-container {
         width: 80%;
+    }
+
+    footer {
+        z-index: 0;
     }
 }
 
